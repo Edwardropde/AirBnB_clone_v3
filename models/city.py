@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ City Module for HBNB project """
+import models
 from models.base_model import BaseModel
 from models.base_model import Base
-from models.place import Place
+from os import getenv
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column
@@ -19,7 +20,15 @@ class City(BaseModel, Base):
         name (sqlalchemy String): name of city
         state_id (sqlalchemy String): state id of city
     """
-    __tablename__ = "cities"
-    name = Column(String(128), nullable=False)
-    state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
-    places = relationship("Place", backref="cities", cascade="delete")
+    if models.storage_t == "db":
+        __tablename__ = 'cities'
+        state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
+        name = Column(String(128), nullable=False)
+        places = relationship("Place", backref="cities")
+    else:
+        state_id = ""
+        name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes city"""
+        super().__init__(*args, **kwargs)

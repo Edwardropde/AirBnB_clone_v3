@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Defines BaseModel class."""
 import models
-from uuid import uuid4
-from datetime import datetime
+import uuid
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column
 from sqlalchemy import DateTime
@@ -11,7 +10,7 @@ from os import getenv
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
-if models.storage == "db":
+if models.storage_t == "db":
     Base = declarative_base()
 else:
     Base = object
