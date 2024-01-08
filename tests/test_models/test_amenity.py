@@ -48,10 +48,8 @@ class TestAmenityDocs(unittest.TestCase):
     def test_amenity_func_docstrings(self):
         """Test for the presence of docstrings in Amenity methods"""
         for func in self.amenity_f:
-            self.assertIsNot(func[1].__doc__, None,
-                    "{:s} method needs a docstring".format(func[0]))
-            self.assertTrue(len(func[1].__doc__) >= 1,
-                    "{:s} method needs a docstring".format(func[0]))
+            self.assertIsNot(func[1].__doc__, None, "{:s}".format(func[0]))
+            self.assertTrue(len(func[1].__doc__) >= 1, "{:s}".format(func[0]))
 
 
 class TestAmenity(unittest.TestCase):

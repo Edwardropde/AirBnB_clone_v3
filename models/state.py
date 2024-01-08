@@ -13,7 +13,6 @@ class State(BaseModel, Base):
     """
     Represents state for MySQL database
     Inherits from SPLAlchemy Base and connects to MySQL table states
-    
     Attributes:
         __tablename__ (str): Name of MySQL table to store states
         name (sqlalchemy String): name of state
@@ -29,8 +28,8 @@ class State(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes state"""
         super().__init__(*args, **kwargs)
-    
-    if if models.storage_t != "db":
+
+    if models.storage_t != "db":
         @property
         def cities(self):
             """Get list of related city objects"""

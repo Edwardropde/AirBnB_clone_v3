@@ -43,10 +43,8 @@ class TestUserDocs(unittest.TestCase):
 
     def test_user_class_docstring(self):
         """Test for city class docstring"""
-        self.assertIsNot(User.__doc__, None,
-                         "User class needs a docstring")
-        self.assertTrue(len(User.__doc__) >= 1,
-                         "User class needs a docstring")
+        self.assertIsNot(User.__doc__, None, "User class needs a docstring")
+        self.assertTrue(len(User.__doc__) >= 1, "User class lacks docstring")
 
     def test_user_func_docstrings(self):
         """Test for presence of docstring in user methods"""

@@ -46,8 +46,7 @@ class TestDBStorageDocs(unittest.TestCase):
         pep8s = pep8.StyleGuide(quiet=True)
         result = pep8s.check_files(['tests/test_models/test_engine/\
                                         test_db_storage.py'])
-        self.assertEqual(result.total_errors, 0,
-                            "Found code style errors (and warnings).")
+        self.assertEqual(result.total_errors, 0, "style error (warnings).")
 
     def test_db_storage_module_docstring(self):
         """Test for the db_storage.py module docstring"""
@@ -66,10 +65,8 @@ class TestDBStorageDocs(unittest.TestCase):
     def test_dbs_func_docstrings(self):
         """Test for the presence of docstrings in DBStorage methods"""
         for func in self.dbs_f:
-            self.assertIsNot(func[1].__doc__, None,
-                             "{:s} method needs a docstring".format(func[0]))
-            self.assertTrue(len(func[1].__doc__) >= 1,
-                             "{:s} method needs a docstring".format(func[0]))
+            self.assertIsNot(func[1].__doc__, None, "{:s}".format(func[0]))
+            self.assertTrue(len(func[1].__doc__) >= 1, "{:s}".format(func[0]))
 
 
 class TestFileStorage(unittest.TestCase):

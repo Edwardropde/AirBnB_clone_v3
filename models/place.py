@@ -19,11 +19,13 @@ if models.storage_t == 'db':
                           Column('place_id', String(60),
                                  ForeignKey('places.id', onupdate='CASCADE',
                                             ondelete='CASCADE'),
-                                 primary_key=True))
+                                 primary_key=True),
                           Column('amenity_id', String(60),
                                  ForeignKey('amenities.id', onupdate='CASCADE',
                                             ondelete='CASCADE'),
-                                 primary_key=True))
+                                 primary_key=True)
+                          )
+
 
 class Place(BaseModel, Base):
     """

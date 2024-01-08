@@ -7,6 +7,9 @@ import pep8 as pycodestyle
 import time
 import unittest
 from unittest import mock
+import sys
+import os
+
 BaseModel = models.base_model.BaseModel
 module_doc = models.base_model.__doc__
 
@@ -36,10 +39,8 @@ class TestBaseModelDocs(unittest.TestCase):
 
     def test_class_docstring(self):
         """test for BaseModel class dosctring"""
-        self.assertIsNot(BaseModel.__doc__, None,
-                         "BaseModel class needs a docstring")
-        self.assertTrue(len(BaseModel.__doc__) >= 1,
-                         "BaseModel class needs a docstring")
+        self.assertIsNot(BaseModel.__doc__, None, "no docstring 4 BaseModel")
+        self.assertTrue(len(BaseModel.__doc__) >= 1, "BaseModel witout docst")
 
     def test_func_docstrings(self):
         """Test for the presence of docstrings in BaseModel methods"""
